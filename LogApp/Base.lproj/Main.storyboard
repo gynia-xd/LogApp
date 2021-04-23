@@ -26,20 +26,29 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="295" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="1WD-AZ-Vn8"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GbB-v2-AhF">
                                                 <rect key="frame" x="0.0" y="50" width="295" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="tdA-QV-EGz"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWh-DM-ejd">
                                         <rect key="frame" x="0.0" y="100" width="295" height="36"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Log In"/>
+                                        <state key="normal" title="Log In">
+                                            <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                        </state>
                                         <connections>
-                                            <segue destination="mRb-7t-ppu" kind="presentation" modalPresentationStyle="fullScreen" id="lJa-0H-EQC"/>
+                                            <segue destination="mRb-7t-ppu" kind="presentation" identifier="showWelcomeVC" modalPresentationStyle="fullScreen" id="lJa-0H-EQC"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="K66-Jf-jcc">
@@ -49,11 +58,17 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="118" height="28"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <state key="normal" title="Forgot User Name?"/>
+                                                <connections>
+                                                    <action selector="forgotRegisterData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="buZ-g7-4Gu"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Zc-b7-XAo">
                                                 <rect key="frame" x="186" y="0.0" width="109" height="28"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <state key="normal" title="Forgot Password?"/>
+                                                <connections>
+                                                    <action selector="forgotRegisterData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Gy-NW-Gv0"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -61,13 +76,17 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.82324939966201782" green="0.54755169153213501" blue="1" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="1ee-F0-heW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-32" id="8xL-OP-PIb"/>
                             <constraint firstItem="1ee-F0-heW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="BBo-DH-xGy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1ee-F0-heW" secondAttribute="trailing" constant="40" id="I5Q-zu-ewj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="GbB-v2-AhF" id="Hf3-yt-E6G"/>
+                        <outlet property="userNameTextField" destination="8Ug-po-YID" id="KrQ-jY-Azt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -102,6 +121,9 @@
                                 <state key="normal" title="Log out">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="xP3-p0-CYQ" kind="unwind" unwindAction="unwindSegueWithSegue:" id="701-gp-pyy"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Isi-Sd-1It"/>
@@ -121,6 +143,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5G8-NK-bh9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="xP3-p0-CYQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="762" y="74"/>
         </scene>
@@ -128,6 +151,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
